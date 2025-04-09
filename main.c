@@ -7128,20 +7128,24 @@ int main(void) {
                 "Aplikasi D'Magis dirancang untuk memfasilitasi kerja sama antara pemerintah dan penyedia layanan\nkatering (Vendor) dalam penyediaan makanan sekolah. Dengan sistem yang terstruktur, aplikasi ini\nmemungkinkan pengelolaan data sekolah, penetapan kerja sama, serta proses pengajuan dan persetujuan\nRencana Anggaran Biaya (RAB) untuk program makanan sehat bagi siswa.\n\nProgram ini dibuat sebagai bentuk visualisasi dan hasil rekreasi dari Tugas Besar yang diberikan\noleh Mata Praktikum: Algoritma dan Dasar Pemrograman, yang berada di bawah naungan Laboratorium\nDasar Komputer. Proyek Tugas Besar ini dikerjakan oleh Divisi Assignment and Task Committe 1,\ndan dikhususkan untuk para praktikan di Semester 2 ini.\n\nKontributor:\n1. NUE (Immanuel E. H. Joseph A.): Programmer\n2. RAF (Rafhan Mazaya F.): Founder, Flowchart Maker (Admin as Government)\n3. SNI (Stevannie Pratama): Flowchart Maker (User as Vendor/Catering)\n4. DAZ (Dariele Zebada S. G.): Flowchart Maker (Profile Credentials)",
                 
                 "Project Link: github.com/EintsWaveX/DMagis",
-                "Project Creation Timeline: 31st January 2025 u/ 8th April 2025 (maintenanced until today)",
+                "Project Creation Timeline: 31st January 2025 u/ 10th April 2025 (maintenanced until today)",
+                "Project Publishment: Thursday, April 10th 2025, at 3 AM",
+
                 "Copyrighted (C) 2025, authorized by ATC 1, under Basic Computing Laboratory guidance. All rights reserved.",
             };
-            TextObject AM[4] ={
+            TextObject AM[5] ={
                 CreateTextObject(GIFont, AboutMessages[0], FONT_P, SPACING_WIDER, (Vector2){0, 260}, 0, true),
-                CreateTextObject(GIFont, AboutMessages[1], FONT_P, SPACING_WIDER, AM[0].TextPosition, 570, true),
+                CreateTextObject(GIFont, AboutMessages[1], FONT_P, SPACING_WIDER, AM[0].TextPosition, 540, true),
                 CreateTextObject(GIFont, AboutMessages[2], FONT_P, SPACING_WIDER, AM[1].TextPosition, 30, true),
-                CreateTextObject(GIFont, AboutMessages[3], FONT_P, SPACING_WIDER, (Vector2){0, SCREEN_HEIGHT - 60}, 0, true),
+                CreateTextObject(GIFont, AboutMessages[3], FONT_P, SPACING_WIDER, AM[1].TextPosition, 30, true),
+                CreateTextObject(GIFont, AboutMessages[4], FONT_P, SPACING_WIDER, (Vector2){0, SCREEN_HEIGHT - 60}, 0, true),
             };
 
             DrawTextEx(GIFont, AM[0].TextFill, AM[0].TextPosition, AM[0].FontData.x, AM[0].FontData.y, WHITE);
             DrawTextEx(GIFont, AM[1].TextFill, AM[1].TextPosition, AM[1].FontData.x, AM[1].FontData.y, SKYBLUE);
             DrawTextEx(GIFont, AM[2].TextFill, AM[2].TextPosition, AM[2].FontData.x, AM[2].FontData.y, YELLOW);
-            DrawTextEx(GIFont, AM[3].TextFill, AM[3].TextPosition, AM[3].FontData.x, AM[3].FontData.y, GREEN);
+            DrawTextEx(GIFont, AM[3].TextFill, AM[3].TextPosition, AM[3].FontData.x, AM[3].FontData.y, PINK);
+            DrawTextEx(GIFont, AM[4].TextFill, AM[4].TextPosition, AM[4].FontData.x, AM[4].FontData.y, GREEN);
         }
         else if (CurrentMenu == MENU_EXIT) {
             DrawTextEx(GIFont, TitleMessage.TextFill, TitleMessage.TextPosition, TitleMessage.FontData.x, TitleMessage.FontData.y, WHITE);
