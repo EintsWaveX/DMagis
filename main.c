@@ -7144,7 +7144,7 @@ int main(void) {
             DrawTextEx(GIFont, AM[0].TextFill, AM[0].TextPosition, AM[0].FontData.x, AM[0].FontData.y, WHITE);
             DrawTextEx(GIFont, AM[1].TextFill, AM[1].TextPosition, AM[1].FontData.x, AM[1].FontData.y, SKYBLUE);
             DrawTextEx(GIFont, AM[2].TextFill, AM[2].TextPosition, AM[2].FontData.x, AM[2].FontData.y, YELLOW);
-            DrawTextEx(GIFont, AM[3].TextFill, AM[3].TextPosition, AM[3].FontData.x, AM[3].FontData.y, YELLOW);
+            DrawTextEx(GIFont, AM[3].TextFill, AM[3].TextPosition, AM[3].FontData.x, AM[3].FontData.y, PINK);
             DrawTextEx(GIFont, AM[4].TextFill, AM[4].TextPosition, AM[4].FontData.x, AM[4].FontData.y, GREEN);
         }
         else if (CurrentMenu == MENU_EXIT) {
