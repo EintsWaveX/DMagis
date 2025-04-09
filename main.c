@@ -7135,7 +7135,7 @@ int main(void) {
             };
             TextObject AM[5] ={
                 CreateTextObject(GIFont, AboutMessages[0], FONT_P, SPACING_WIDER, (Vector2){0, 260}, 0, true),
-                CreateTextObject(GIFont, AboutMessages[1], FONT_P, SPACING_WIDER, AM[0].TextPosition, 540, true),
+                CreateTextObject(GIFont, AboutMessages[1], FONT_P, SPACING_WIDER, AM[0].TextPosition, 555, true),
                 CreateTextObject(GIFont, AboutMessages[2], FONT_P, SPACING_WIDER, AM[1].TextPosition, 30, true),
                 CreateTextObject(GIFont, AboutMessages[3], FONT_P, SPACING_WIDER, AM[2].TextPosition, 30, true),
                 CreateTextObject(GIFont, AboutMessages[4], FONT_P, SPACING_WIDER, (Vector2){0, SCREEN_HEIGHT - 60}, 0, true),
