@@ -7137,14 +7137,14 @@ int main(void) {
                 CreateTextObject(GIFont, AboutMessages[0], FONT_P, SPACING_WIDER, (Vector2){0, 260}, 0, true),
                 CreateTextObject(GIFont, AboutMessages[1], FONT_P, SPACING_WIDER, AM[0].TextPosition, 540, true),
                 CreateTextObject(GIFont, AboutMessages[2], FONT_P, SPACING_WIDER, AM[1].TextPosition, 30, true),
-                CreateTextObject(GIFont, AboutMessages[3], FONT_P, SPACING_WIDER, AM[1].TextPosition, 30, true),
+                CreateTextObject(GIFont, AboutMessages[3], FONT_P, SPACING_WIDER, AM[2].TextPosition, 30, true),
                 CreateTextObject(GIFont, AboutMessages[4], FONT_P, SPACING_WIDER, (Vector2){0, SCREEN_HEIGHT - 60}, 0, true),
             };
 
             DrawTextEx(GIFont, AM[0].TextFill, AM[0].TextPosition, AM[0].FontData.x, AM[0].FontData.y, WHITE);
             DrawTextEx(GIFont, AM[1].TextFill, AM[1].TextPosition, AM[1].FontData.x, AM[1].FontData.y, SKYBLUE);
             DrawTextEx(GIFont, AM[2].TextFill, AM[2].TextPosition, AM[2].FontData.x, AM[2].FontData.y, YELLOW);
-            DrawTextEx(GIFont, AM[3].TextFill, AM[3].TextPosition, AM[3].FontData.x, AM[3].FontData.y, PINK);
+            DrawTextEx(GIFont, AM[3].TextFill, AM[3].TextPosition, AM[3].FontData.x, AM[3].FontData.y, YELLOW);
             DrawTextEx(GIFont, AM[4].TextFill, AM[4].TextPosition, AM[4].FontData.x, AM[4].FontData.y, GREEN);
         }
         else if (CurrentMenu == MENU_EXIT) {
