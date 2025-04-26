@@ -5,12 +5,23 @@
 ## NOTE: Please READ this first before you're going to open the link down below!
 
 [D'Magis: Free Lunch Program PARODY, by Team ATC 1 and Telkom University's Basic Computing Laboratory](https://eintswavex.github.io/DMagis)
+[D'Magis: Free Lunch Program PARODY, by Team ATC 1 and Telkom University's Basic Computing Laboratory](https://eintswavex.github.io/DMagis)
+[D'Magis: Free Lunch Program PARODY, by Team ATC 1 and Telkom University's Basic Computing Laboratory](https://eintswavex.github.io/DMagis)
 
-```.txt
-The website application is **NOT RESIZEABLE**, thus leaving the web-app may get zoomed way over than your native DPI screen. In order to fix this, make sure you adjust the **ZOOM LEVEL** on your browser and make sure the shown screen look like already got **CENTERED** properly.
-Link to D'Magis: eintswavex.github.io/DMagis
+```text
+The website application is **NOT RESIZEABLE**, thus leaving the web-app may get
+zoomed way over than your native DPI screen. In order to fix this, make sure you
+adjust the **ZOOM LEVEL** on your browser and make sure the shown screen look like
+already got **CENTERED** properly.
+
+Before you're going to experience the whole program, make sure to:
+1. Decrease the zoom level of your browser until things look "centered."
+2. Un-check the check-box "Lock/hide mouse pointer" on the Emscripten header.
+3. For better experience, click the "Fullscreen" button.
 ```
 
+[D'Magis: Free Lunch Program PARODY, by Team ATC 1 and Telkom University's Basic Computing Laboratory](https://eintswavex.github.io/DMagis)
+[D'Magis: Free Lunch Program PARODY, by Team ATC 1 and Telkom University's Basic Computing Laboratory](https://eintswavex.github.io/DMagis)
 [D'Magis: Free Lunch Program PARODY, by Team ATC 1 and Telkom University's Basic Computing Laboratory](https://eintswavex.github.io/DMagis)
 
 ---
@@ -141,8 +152,6 @@ emcc main.c ^
   -lidbfs.js ^
   --preload-file assets ^
   -O1
-
-emrun --no-browser port 8080 .
 ```
 
 2. **Build for UNIX/POSIX:**
@@ -166,11 +175,17 @@ emcc main.c \
   -lidbfs.js \
   --preload-file assets \
   -O1
+```
 
+In order to run the local ported web-application here from your local machine, use the following code:
+
+```bash
 emrun --no-browser port 8080 .
 ```
 
-### 4. B. (build system explanation)
+Note: *(you can change the port value to whatever port value you may want to use...)*
+
+### === Build System Explanation ===
 
 If you want to only go for a quick-build-development process, you can just set the `-O1` command into a quicker one, like `-O0` one (but I can't really guarantee much of a some small visual bugs/tweaks). But, if you want to go for a much deeper compilation (with better runtime execution), you can go for either `-O2` or `-O3` here, and of course, the compiling process will took much longer (around 4-5 minutes, depending on your CPU threads).
 
@@ -213,16 +228,16 @@ And then, there you go! You have your own custom local D'Magis implementation, a
 
 ---
 
-## Special Thanks
+## Special Thanks to:
 
 1. **D'Magis Development Team, ATC 1**
 
-    - NUE (Immanuel E. H. Joseph A.): **Programmer**
-    - RAF (Rafhan Mazaya F.): **Founder, Flowchart Maker (Admin as Government)**
-    - SNI (Stevannie Pratama): **Flowchart Maker (User as Vendor/Catering)**
-    - DAZ (Dariele Zebada S. G.): **Flowchart Maker (Profile Credentials)**
+    - [NUE (Immanuel Eben Haezer Joseph Aletheia)](httpsL://github.com/EintsWaveX): **Developer and Programmer**
+    - [RAF (Rafhan Mazaya Fathurrahman)](httpsL://github.com/fhanyuh): **Founder, Flowchart Maker (Admin as Government)**
+    - [SNI (Stevannie Pratama)](httpsL://github.com/stevanniep): **Flowchart Maker (User as Vendor/Catering)**
+    - DAZ (Dariele Zebada Sanuwu Gea): **Flowchart Maker (Profile Credentials)**
 
-2. **Basic Computing Laboratory, Year 2022-2023**
+2. **[Basic Computing Laboratory](https://github.com/Daskom-Lab)**
 
 ---
 

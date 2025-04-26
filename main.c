@@ -308,6 +308,8 @@ float SetCardPositionInX = 0; // Start off-screen left
 float TargetX = 0;
 int TransitionDirection = 0; // 1 = right, -1 = left
 
+bool RefreshDataOnlyOnceForAll = false;
+
 // ----------------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------------
@@ -1636,24 +1638,28 @@ void GovernmentMainMenu(void) {
         "Lihat semua data kerja sama\nyang dijalani oleh Vendor dengan\nsekolah yang bersangkutan.",
     };
     
-    // Always updates the concurrent data of Vendors and Schools whenever changes or no changes are detected.
-    // Again, just for safety reasons...
-    // ReadUserAccount(Vendors);
-    // ReadSchoolsData(Schools);
-    // for (int i = 0; i < MAX_ACCOUNT_LIMIT; i++) {
-    //     for (int j = 0; j < MAX_ACCOUNT_LIMIT; j++) {
-    //         if (OriginalVendors[i].SaveSchoolDataIndex == j) {
-    //             if (strcmp(OriginalVendors[i].AffiliatedSchoolData.Name, OriginalSchools[j].Name) != 0) { strcpy(OriginalVendors[i].AffiliatedSchoolData.Name, OriginalSchools[j].Name); }
-    //             if (strcmp(OriginalVendors[i].AffiliatedSchoolData.Students, OriginalSchools[j].Students) != 0) { strcpy(OriginalVendors[i].AffiliatedSchoolData.Students, OriginalSchools[j].Students); }
-    //         }
-    //     }
-    // } 
-    // WriteUserAccount(OriginalVendors);
-    // WriteSchoolsData(OriginalSchools);
-    // SyncVendorsFromOriginalVendorData(Vendors, OriginalVendors);
-    // SyncSchoolsFromOriginalSchoolData(Schools, OriginalSchools);
-    // Always updates the concurrent data of Vendors and Schools whenever changes or no changes are detected.
-    // Again, just for safety reasons...
+    if (!RefreshDataOnlyOnceForAll) {
+        // Always updates the concurrent data of Vendors and Schools whenever changes or no changes are detected.
+        // Again, just for safety reasons...
+        ReadUserAccount(Vendors);
+        ReadSchoolsData(Schools);
+        for (int i = 0; i < MAX_ACCOUNT_LIMIT; i++) {
+            for (int j = 0; j < MAX_ACCOUNT_LIMIT; j++) {
+                if (OriginalVendors[i].SaveSchoolDataIndex == j) {
+                    if (strcmp(OriginalVendors[i].AffiliatedSchoolData.Name, OriginalSchools[j].Name) != 0) { strcpy(OriginalVendors[i].AffiliatedSchoolData.Name, OriginalSchools[j].Name); }
+                    if (strcmp(OriginalVendors[i].AffiliatedSchoolData.Students, OriginalSchools[j].Students) != 0) { strcpy(OriginalVendors[i].AffiliatedSchoolData.Students, OriginalSchools[j].Students); }
+                }
+            }
+        } 
+        WriteUserAccount(OriginalVendors);
+        WriteSchoolsData(OriginalSchools);
+        SyncVendorsFromOriginalVendorData(Vendors, OriginalVendors);
+        SyncSchoolsFromOriginalSchoolData(Schools, OriginalSchools);
+        // Always updates the concurrent data of Vendors and Schools whenever changes or no changes are detected.
+        // Again, just for safety reasons...
+
+        RefreshDataOnlyOnceForAll = true;
+    }
 
     // Always reset the menu profile cards...
     GetTemporaryVendorIndex = -1;
@@ -1682,6 +1688,8 @@ void GovernmentMainMenu(void) {
                 if (i == 15) NextMenu = MENU_MAIN_GOVERNMENT_GetBilateralList;
                 
                 PlaySound(ButtonClickSFX);
+                RefreshDataOnlyOnceForAll = false;
+
                 Transitioning = true;
                 ScreenFade = 1.0f;
             }
@@ -4640,22 +4648,26 @@ void VendorMainMenu(void) {
         "Lihat semua status menu M.S.G.\nAnda yang telah diberi indikator\npesan sistem dan warna yang tepat.",
     };
     
-    // Always updates the concurrent data of Vendors and Schools whenever changes or no changes are detected.
-    // Again, just for safety reasons...
-    // ReadUserAccount(Vendors);
-    // ReadSchoolsData(Schools);
-    // for (int i = 0; i < MAX_ACCOUNT_LIMIT; i++) {
-    //     for (int j = 0; j < MAX_ACCOUNT_LIMIT; j++) {
-    //         if (OriginalVendors[i].SaveSchoolDataIndex == j) {
-    //             if (strcmp(OriginalVendors[i].AffiliatedSchoolData.Name, OriginalSchools[j].Name) != 0) { strcpy(OriginalVendors[i].AffiliatedSchoolData.Name, OriginalSchools[j].Name); }
-    //             if (strcmp(OriginalVendors[i].AffiliatedSchoolData.Students, OriginalSchools[j].Students) != 0) { strcpy(OriginalVendors[i].AffiliatedSchoolData.Students, OriginalSchools[j].Students); }
-    //         }
-    //     }
-    // }
-    // WriteUserAccount(OriginalVendors);
-    // SyncVendorsFromOriginalVendorData(Vendors, OriginalVendors);
-    // Always updates the concurrent data of Vendors and Schools whenever changes or no changes are detected.
-    // Again, just for safety reasons...
+    if (!RefreshDataOnlyOnceForAll) {
+        // Always updates the concurrent data of Vendors and Schools whenever changes or no changes are detected.
+        // Again, just for safety reasons...
+        ReadUserAccount(Vendors);
+        ReadSchoolsData(Schools);
+        for (int i = 0; i < MAX_ACCOUNT_LIMIT; i++) {
+            for (int j = 0; j < MAX_ACCOUNT_LIMIT; j++) {
+                if (OriginalVendors[i].SaveSchoolDataIndex == j) {
+                    if (strcmp(OriginalVendors[i].AffiliatedSchoolData.Name, OriginalSchools[j].Name) != 0) { strcpy(OriginalVendors[i].AffiliatedSchoolData.Name, OriginalSchools[j].Name); }
+                    if (strcmp(OriginalVendors[i].AffiliatedSchoolData.Students, OriginalSchools[j].Students) != 0) { strcpy(OriginalVendors[i].AffiliatedSchoolData.Students, OriginalSchools[j].Students); }
+                }
+            }
+        }
+        WriteUserAccount(OriginalVendors);
+        SyncVendorsFromOriginalVendorData(Vendors, OriginalVendors);
+        // Always updates the concurrent data of Vendors and Schools whenever changes or no changes are detected.
+        // Again, just for safety reasons...
+
+        RefreshDataOnlyOnceForAll = true;
+    }
 
     Vector2 Mouse = GetMousePosition();
     DrawTextEx(GIFont, TitleMessage.TextFill, TitleMessage.TextPosition, TitleMessage.FontData.x, TitleMessage.FontData.y, WHITE);
@@ -4680,6 +4692,8 @@ void VendorMainMenu(void) {
                 if (i == 24) NextMenu = MENU_MAIN_VENDOR_GetDailyMenuStatusList;
                 
                 PlaySound(ButtonClickSFX);
+                RefreshDataOnlyOnceForAll = false;
+
                 Transitioning = true;
                 ScreenFade = 1.0f;
             }
@@ -7125,7 +7139,7 @@ int main(void) {
             DrawPreviousMenuButton();
 
             const char *AboutMessages[] = {
-                "Aplikasi D'Magis dirancang untuk memfasilitasi kerja sama antara pemerintah dan penyedia layanan\nkatering (Vendor) dalam penyediaan makanan sekolah. Dengan sistem yang terstruktur, aplikasi ini\nmemungkinkan pengelolaan data sekolah, penetapan kerja sama, serta proses pengajuan dan persetujuan\nRencana Anggaran Biaya (RAB) untuk program makanan sehat bagi siswa.\n\nProgram ini dibuat sebagai bentuk visualisasi dan hasil rekreasi dari Tugas Besar yang diberikan\noleh Mata Praktikum: Algoritma dan Dasar Pemrograman, yang berada di bawah naungan Laboratorium\nDasar Komputer. Proyek Tugas Besar ini dikerjakan oleh Divisi Assignment and Task Committe 1,\ndan dikhususkan untuk para praktikan di Semester 2 ini.\n\nKontributor:\n1. NUE (Immanuel E. H. Joseph A.): Programmer\n2. RAF (Rafhan Mazaya F.): Founder, Flowchart Maker (Admin as Government)\n3. SNI (Stevannie Pratama): Flowchart Maker (User as Vendor/Catering)\n4. DAZ (Dariele Zebada S. G.): Flowchart Maker (Profile Credentials)",
+                "Aplikasi D'Magis dirancang untuk memfasilitasi kerja sama antara pemerintah dan penyedia layanan\nkatering (Vendor) dalam penyediaan makanan sekolah. Dengan sistem yang terstruktur, aplikasi ini\nmemungkinkan pengelolaan data sekolah, penetapan kerja sama, serta proses pengajuan dan persetujuan\nRencana Anggaran Biaya (RAB) untuk program makanan sehat bagi siswa.\n\nProgram ini dibuat sebagai bentuk visualisasi dan hasil rekreasi dari Tugas Besar yang diberikan\noleh Mata Praktikum: Algoritma dan Dasar Pemrograman, yang berada di bawah naungan Laboratorium\nDasar Komputer. Proyek Tugas Besar ini dikerjakan oleh Divisi Assignment and Task Committe 1,\ndan dikhususkan untuk para praktikan di Semester 2 ini.\n\nKontributor -- Anggota Tim ATC 1:\n1. NUE (Immanuel Eben Haezer Joseph Aletheia): Developer and Programmer\n2. RAF (Rafhan Mazaya Fathurrahman): Founder, Flowchart Maker (Admin as Government)\n3. SNI (Stevannie Pratama): Flowchart Maker (User as Vendor/Catering)\n4. DAZ (Dariele Zebada Sanuwu Gea): Flowchart Maker (Profile Credentials)",
                 
                 "Project Link: github.com/EintsWaveX/DMagis",
                 "Project Creation Timeline: 31st January 2025 u/ 10th April 2025 (maintenanced until today)",
