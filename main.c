@@ -4256,7 +4256,6 @@ void GovernmentConfirmBudgetPlansMenu_CHOOSING(void) {
     DrawTextEx(GIFont, SubtitleMessage.TextFill, SubtitleMessage.TextPosition, SubtitleMessage.FontData.x, SubtitleMessage.FontData.y, WHITE);
 
     Vector2 Mouse = GetMousePosition();
-
     Rectangle NavigationButtons[2] = {
         {75, (SCREEN_HEIGHT / 2) - (210 / 2), 90, 210},
         {(SCREEN_WIDTH - 75) - 90, (SCREEN_HEIGHT / 2) - (210 / 2), 90, 210},
